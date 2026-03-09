@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhruv Rajpoot — Product & Growth Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface2: #161616;
+    --border: #222222;
+    --accent: #e8ff47;
+    --accent2: #47c8ff;
+    --accent3: #ff6b47;
+    --text: #f0f0f0;
+    --muted: #666666;
+    --muted2: #444444;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(20px);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    padding: 10px 20px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+
+  .nav-cta:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 120px 48px 80px;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(232,255,71,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 32px;
+  }
+
+  .hero h1 .line2 {
+    color: var(--accent);
+    display: block;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    color: #999;
+    line-height: 1.7;
+    max-width: 460px;
+    margin-bottom: 40px;
+  }
+
+  .hero-desc strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+    font-weight: 400;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: #fff;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--text);
+    color: var(--text);
+  }
+
+  /* STATS GRID */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    align-self: center;
+  }
+
+  .stat-box {
+    background: var(--surface);
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .stat-box:hover { background: var(--surface2); }
+
+  .stat-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--accent);
+    transition: height 0.4s ease;
+  }
+
+  .stat-box:hover::before { height: 100%; }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 42px;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .stat-num.blue { color: var(--accent2); }
+  .stat-num.red { color: var(--accent3); }
+  .stat-num.white { color: var(--text); }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* SECTION COMMON */
+  section {
+    padding: 100px 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 64px;
+  }
+
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted2);
+    letter-spacing: 0.1em;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    letter-spacing: -1.5px;
+    color: var(--text);
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* PROJECTS */
+  #projects { padding-bottom: 80px; }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .project-card {
+    background: var(--surface);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .project-card:hover { background: #141414; }
+
+  .project-card.featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .project-card::after {
+    content: '↗';
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-size: 18px;
+    color: var(--muted2);
+    transition: all 0.3s;
+  }
+
+  .project-card:hover::after {
+    color: var(--accent);
+    transform: translate(3px, -3px);
+  }
+
+  .project-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border: 1px solid;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .tag-growth { color: var(--accent); border-color: rgba(232,255,71,0.3); }
+  .tag-ml { color: var(--accent2); border-color: rgba(71,200,255,0.3); }
+  .tag-ops { color: var(--accent3); border-color: rgba(255,107,71,0.3); }
+
+  .project-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted2);
+    letter-spacing: 0.05em;
+  }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    color: var(--text);
+    padding-right: 40px;
+  }
+
+  .project-desc {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.7;
+  }
+
+  .project-findings {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .finding {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13px;
+    color: #777;
+    line-height: 1.5;
+  }
+
+  .finding-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .finding-dot.blue { background: var(--accent2); }
+  .finding-dot.red { background: var(--accent3); }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 8px;
+  }
+
+  .stack-pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  /* IMPACT BAND */
+  .impact-band {
+    background: var(--accent);
+    padding: 60px 48px;
+    border-top: none;
+  }
+
+  .impact-band .section-title { color: var(--bg); }
+  .impact-band .section-num { color: rgba(0,0,0,0.4); }
+  .impact-band .section-line { background: rgba(0,0,0,0.15); }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.15);
+    margin-top: 0;
+  }
+
+  .impact-item {
+    background: var(--accent);
+    padding: 36px 28px;
+    text-align: center;
+  }
+
+  .impact-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    letter-spacing: -2px;
+    color: var(--bg);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .impact-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.55);
+    line-height: 1.4;
+  }
+
+  /* SKILLS */
+  #skills { background: var(--surface); }
+
+  .skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .skill-group {
+    background: var(--bg);
+    padding: 36px;
+  }
+
+  .skill-group-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .skill-name {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  .skill-bar-wrap {
+    width: 80px;
+    height: 2px;
+    background: var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-bar {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    background: var(--accent);
+    animation: barGrow 1.2s ease forwards;
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  @keyframes barGrow {
+    to { transform: scaleX(1); }
+  }
+
+  /* ABOUT */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-story {
+    font-size: 15px;
+    color: #888;
+    line-height: 1.8;
+  }
+
+  .about-story p { margin-bottom: 20px; }
+
+  .about-story strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .about-story .highlight {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .timeline-item:last-child { border-bottom: none; }
+
+  .tl-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    padding-top: 3px;
+  }
+
+  .tl-content {}
+
+  .tl-role {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: -0.3px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .tl-company {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .tl-desc {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--bg);
+    text-align: center;
+    padding: 120px 48px;
+  }
+
+  .contact-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .contact-headline {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(40px, 5vw, 72px);
+    letter-spacing: -3px;
+    line-height: 0.95;
+    margin-bottom: 48px;
+  }
+
+  .contact-headline span { color: var(--accent); }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .contact-link.primary {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  .contact-link.primary:hover {
+    background: #fff;
+    transform: translateY(-2px);
+  }
+
+  .contact-link.ghost {
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  .contact-link.ghost:hover {
+    border-color: var(--muted);
+    color: var(--text);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted2);
+    letter-spacing: 0.05em;
+  }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+  .delay-5 { animation-delay: 0.5s; }
+
+  /* TICKER */
+  .ticker-wrap {
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+    background: var(--surface);
+  }
+
+  .ticker {
+    display: flex;
+    gap: 0;
+    animation: ticker 25s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+
+  .ticker-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .ticker-item::after {
+    content: '◆';
+    color: var(--accent);
+    font-size: 8px;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-template-columns: 1fr; }
+    .impact-grid { grid-template-columns: 1fr 1fr; }
+    .skills-layout { grid-template-columns: 1fr; }
+    section { padding: 60px 24px; }
+    #about { grid-template-columns: 1fr; gap: 48px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+    .impact-band { padding: 60px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">DR<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#skills">Stack</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:dhruv.rajpoot@outlook.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="border-top:none;">
+  <div>
+    <div class="hero-tag fade-up">Product & Growth Analyst</div>
+    <h1 class="fade-up delay-1">
+      Dhruv
+      <span class="line2">Rajpoot.</span>
+    </h1>
+    <p class="hero-desc fade-up delay-2">
+      I turn raw product data into <strong>revenue decisions</strong>. 3+ years building KPI frameworks, churn models, and growth experiments for SaaS teams — backed by <strong>6 years of forensic analytical thinking</strong> as a litigation attorney at Delhi High Court.
+    </p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="https://www.linkedin.com/in/dhruvrajpoot" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+    </div>
+  </div>
+
+  <div class="hero-stats fade-up delay-4">
+    <div class="stat-box">
+      <div class="stat-num">+14pp</div>
+      <div class="stat-label">Activation lift<br>via A/B testing</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num blue">74%</div>
+      <div class="stat-label">Churn model<br>precision</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num red">−18%</div>
+      <div class="stat-label">High-risk churn<br>reduction</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num white">70%</div>
+      <div class="stat-label">Manual reporting<br>eliminated</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item">SQL · CTEs · Window Functions</span>
+    <span class="ticker-item">Python · Pandas · Scikit-learn</span>
+    <span class="ticker-item">Power BI · Tableau</span>
+    <span class="ticker-item">Cohort & Funnel Analysis</span>
+    <span class="ticker-item">A/B Experimentation</span>
+    <span class="ticker-item">Churn Prediction</span>
+    <span class="ticker-item">KPI Framework Design</span>
+    <span class="ticker-item">SaaS Analytics</span>
+    <span class="ticker-item">GDPR & Compliance</span>
+    <span class="ticker-item">SQL · CTEs · Window Functions</span>
+    <span class="ticker-item">Python · Pandas · Scikit-learn</span>
+    <span class="ticker-item">Power BI · Tableau</span>
+    <span class="ticker-item">Cohort & Funnel Analysis</span>
+    <span class="ticker-item">A/B Experimentation</span>
+    <span class="ticker-item">Churn Prediction</span>
+    <span class="ticker-item">KPI Framework Design</span>
+    <span class="ticker-item">SaaS Analytics</span>
+    <span class="ticker-item">GDPR & Compliance</span>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Selected Work</h2>
+    <div class="section-line"></div>
+    <a href="https://github.com/Mr-DhruvRajpoot" target="_blank" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;white-space:nowrap;">All on GitHub ↗</a>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- FEATURED: Automation -->
+    <a href="https://github.com/Mr-DhruvRajpoot/Sales-reporting-automation-" target="_blank" class="project-card featured">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <span class="project-num">P-05</span>
+          <span class="project-tag tag-ops">Data Ops</span>
+          <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:0.1em;">★ STRONGEST PROJECT</span>
+        </div>
+        <h3 class="project-title">Reporting Automation & Data Pipeline</h3>
+        <p class="project-desc" style="margin-top:12px;">Replaced 4.5 hours of weekly manual Excel work with a single Python script. Automated data quality checks, intelligent imputation, anomaly detection, and executive report generation.</p>
+        <div style="margin-top:24px;background:var(--bg);border:1px solid var(--border);padding:20px;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">Time Saved Per Cycle</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;">
+            <div style="text-align:center;">
+              <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:var(--accent);">45m</div>
+              <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;">Quality check</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:var(--accent);">60m</div>
+              <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;">Imputation</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:var(--accent);">90m</div>
+              <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;">Anomaly detect</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:var(--accent3);">→2s</div>
+              <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;">Automated</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="project-findings">
+          <div class="finding"><div class="finding-dot red"></div><span>Scalable pipeline handles any number of regions or time periods without code changes</span></div>
+          <div class="finding"><div class="finding-dot red"></div><span>Auto-generated executive summaries with regional breakdown and trend visualisation</span></div>
+          <div class="finding"><div class="finding-dot red"></div><span>IQR-based anomaly detection flags revenue outliers with zero manual intervention</span></div>
+          <div class="finding"><div class="finding-dot red"></div><span>Treatment logs maintain data governance trail for every imputation decision</span></div>
+        </div>
+        <div class="project-stack" style="margin-top:32px;">
+          <span class="stack-pill">Python</span>
+          <span class="stack-pill">pandas</span>
+          <span class="stack-pill">NumPy</span>
+          <span class="stack-pill">matplotlib</span>
+          <span class="stack-pill">ETL Pipeline</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Bank Campaign -->
+    <a href="https://github.com/Mr-DhruvRajpoot/bank-campaign-activation-analysis" target="_blank" class="project-card">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="project-num">P-03</span>
+        <span class="project-tag tag-growth">Growth</span>
+      </div>
+      <h3 class="project-title">Activation Optimisation — Bank Campaign A/B Analysis</h3>
+      <p class="project-desc">Analyzed a direct marketing campaign to identify which segments convert and why. Applied statistical testing to double the 11.7% baseline conversion rate.</p>
+      <div class="project-findings">
+        <div class="finding"><div class="finding-dot"></div><span>Calls >5 min convert at <strong style="color:var(--text);">3–4x</strong> the average — duration is the #1 lever</span></div>
+        <div class="finding"><div class="finding-dot"></div><span>March, September, October drive highest conversion — budget concentration strategy identified</span></div>
+        <div class="finding"><div class="finding-dot"></div><span>High-balance segment shows statistically significant uplift (p &lt; 0.05)</span></div>
+      </div>
+      <div class="project-stack">
+        <span class="stack-pill">Python</span>
+        <span class="stack-pill">scipy</span>
+        <span class="stack-pill">Chi-square test</span>
+        <span class="stack-pill">Segmentation</span>
+      </div>
+    </a>
+
+    <!-- Churn -->
+    <a href="https://github.com/Mr-DhruvRajpoot/employee-churn-prediction" target="_blank" class="project-card">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="project-num">P-04</span>
+        <span class="project-tag tag-ml">ML Model</span>
+      </div>
+      <h3 class="project-title">Churn Prediction & Retention Strategy</h3>
+      <p class="project-desc">End-to-end churn model on 4,410 records. ROC-AUC 0.78. Model logic is directly transferable to SaaS customer churn — same mechanics, different domain.</p>
+      <div class="project-findings">
+        <div class="finding"><div class="finding-dot blue"></div><span>Random Forest achieved <strong style="color:var(--text);">ROC-AUC 0.78</strong>, outperforming Logistic Regression and Gradient Boosting</span></div>
+        <div class="finding"><div class="finding-dot blue"></div><span>Highest churn risk in first 2 years — early engagement strategy recommended</span></div>
+        <div class="finding"><div class="finding-dot blue"></div><span>Feature importance analysis surfaces top 10 actionable retention levers</span></div>
+      </div>
+      <div class="project-stack">
+        <span class="stack-pill">scikit-learn</span>
+        <span class="stack-pill">Random Forest</span>
+        <span class="stack-pill">Feature Importance</span>
+        <span class="stack-pill">ROC-AUC</span>
+      </div>
+    </a>
+
+    <!-- KPI -->
+    <a href="https://github.com/Mr-DhruvRajpoot/retail-kpi-growth-dashboard" target="_blank" class="project-card">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="project-num">P-01</span>
+        <span class="project-tag tag-growth">KPI Design</span>
+      </div>
+      <h3 class="project-title">KPI Hierarchy & Growth Measurement — 155K Transactions</h3>
+      <p class="project-desc">Designed a full KPI framework across growth, efficiency, and volume metrics for a multi-region retail business. Year-over-year revenue tracking and regional performance gaps.</p>
+      <div class="project-findings">
+        <div class="finding"><div class="finding-dot"></div><span>Some regions exceed targets by 20%+ while others consistently miss — root cause identified</span></div>
+        <div class="finding"><div class="finding-dot"></div><span>Revenue per customer varies <strong style="color:var(--text);">up to 3x</strong> across regions — major optimisation opportunity</span></div>
+      </div>
+      <div class="project-stack">
+        <span class="stack-pill">Python</span>
+        <span class="stack-pill">pandas</span>
+        <span class="stack-pill">KPI Framework</span>
+        <span class="stack-pill">YoY Analysis</span>
+      </div>
+    </a>
+
+    <!-- Flight CAC -->
+    <a href="https://github.com/Mr-DhruvRajpoot/flight-booking-cac-analysis" target="_blank" class="project-card">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="project-num">P-02</span>
+        <span class="project-tag tag-growth">CAC / Growth</span>
+      </div>
+      <h3 class="project-title">Marketing Efficiency & CAC Optimisation</h3>
+      <p class="project-desc">Revenue yield analysis across airlines, routes, seat classes, and booking windows to identify where acquisition spend generates the highest ROI.</p>
+      <div class="project-findings">
+        <div class="finding"><div class="finding-dot"></div><span>Business class generates <strong style="color:var(--text);">2–3x revenue</strong> per seat — acquisition targeting priority identified</span></div>
+        <div class="finding"><div class="finding-dot"></div><span>Early bookers (30–90 days) pay premium fares — early-bird campaign strategy recommended</span></div>
+      </div>
+      <div class="project-stack">
+        <span class="stack-pill">Python</span>
+        <span class="stack-pill">pandas</span>
+        <span class="stack-pill">Revenue Analysis</span>
+        <span class="stack-pill">CAC Modelling</span>
+      </div>
+    </a>
+
+    <!-- Framingham -->
+    <a href="https://github.com/Mr-DhruvRajpoot/framingham-chd-analysis" target="_blank" class="project-card">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="project-num">P-06</span>
+        <span class="project-tag tag-ml">Predictive ML</span>
+      </div>
+      <h3 class="project-title">10-Year CHD Risk Prediction — Framingham Study</h3>
+      <p class="project-desc">ML model on 4,238 patients to predict coronary heart disease risk. Demonstrates model-building rigor in a high-stakes, compliance-sensitive domain.</p>
+      <div class="project-findings">
+        <div class="finding"><div class="finding-dot blue"></div><span>Gradient Boosting achieved <strong style="color:var(--text);">ROC-AUC 0.75</strong> on a highly imbalanced dataset (15% positive rate)</span></div>
+        <div class="finding"><div class="finding-dot blue"></div><span>CHD risk triples from ages 30–40 to 61–70 — clinical separation clearly validated</span></div>
+      </div>
+      <div class="project-stack">
+        <span class="stack-pill">scikit-learn</span>
+        <span class="stack-pill">Gradient Boosting</span>
+        <span class="stack-pill">Class Imbalance</span>
+        <span class="stack-pill">EDA</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- IMPACT BAND -->
+<div class="impact-band">
+  <div class="section-header" style="margin-bottom:40px;">
+    <span class="section-num">—</span>
+    <h2 class="section-title" style="color:var(--bg);">Proven Impact</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="impact-grid">
+    <div class="impact-item">
+      <div class="impact-num">+22%</div>
+      <div class="impact-label">CAC improvement<br>over 2 quarters</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num">−68%</div>
+      <div class="impact-label">Activation drop-off<br>diagnosed & fixed</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num">3+</div>
+      <div class="impact-label">Years in SaaS<br>analytics roles</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num">6</div>
+      <div class="impact-label">Years litigation<br>attorney, Delhi HC</div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Tech Stack</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-layout">
+    <div class="skill-group">
+      <div class="skill-group-title">Data & Analysis</div>
+      <div class="skill-list">
+        <div class="skill-item">
+          <span class="skill-name">SQL (CTEs, Window Functions)</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Python / pandas / NumPy</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Cohort & Funnel Analysis</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">A/B Testing & Experimentation</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Advanced Excel</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Machine Learning & BI</div>
+      <div class="skill-list">
+        <div class="skill-item">
+          <span class="skill-name">scikit-learn</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Power BI</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Tableau</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Churn & Retention Modelling</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">ETL & Pipeline Automation</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Domain Expertise</div>
+      <div class="skill-list">
+        <div class="skill-item">
+          <span class="skill-name">SaaS Product Analytics</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Growth & Marketing Analytics</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:87%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">GDPR & Data Governance</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Stakeholder Communication</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Fintech / Legaltech / Healthtech</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;padding:100px 48px;">
+  <div>
+    <div class="section-header" style="margin-bottom:36px;">
+      <span class="section-num">03</span>
+      <h2 class="section-title">About</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-story">
+      <p>I spent <strong>6 years as a litigation attorney at the Delhi High Court</strong> — building the kind of analytical thinking that doesn't come from a data bootcamp. Forensic evidence analysis. Building defensible arguments from messy, incomplete information. Communicating complex conclusions to people who need to make high-stakes decisions fast.</p>
+      <p>In 2023, I made a deliberate pivot into data analytics — not because I was looking for a career change, but because <span class="highlight">the work is the same: find the truth in the data, then make someone act on it.</span></p>
+      <p>I'm particularly strong in <strong>regulated environments</strong> — fintech, legaltech, healthtech — where data meets compliance. I hold a <strong>Data Protection Officer certification</strong> and understand GDPR not as a checklist, but as something I've argued in court.</p>
+      <p>Currently open to <strong>full-time, remote, and contract roles</strong> in Product Analytics, Growth Analytics, or BI.</p>
+    </div>
+  </div>
+  <div>
+    <div class="section-header" style="margin-bottom:36px;">
+      <span class="section-num">—</span>
+      <h2 class="section-title">Experience</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="tl-year">2024–2026</div>
+        <div class="tl-content">
+          <div class="tl-role">Product Analytics Consultant</div>
+          <div class="tl-company">Silentfloor Technologies</div>
+          <div class="tl-desc">KPI dashboards, cohort & retention analysis, recommendation engine prototype, weekly reporting automation.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">2024</div>
+        <div class="tl-content">
+          <div class="tl-role">Growth & BI Analytics Consultant</div>
+          <div class="tl-company">GC4 Tech International</div>
+          <div class="tl-desc">SQL + Power BI dashboards, 70% reduction in manual reporting effort, campaign attribution analysis.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">2023–2024</div>
+        <div class="tl-content">
+          <div class="tl-role">Data Analyst — Project Engagement</div>
+          <div class="tl-company">Dataiku</div>
+          <div class="tl-desc">ETL pipelines, Tableau dashboards, churn prediction models, revenue initiative insights.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">2017–2023</div>
+        <div class="tl-content">
+          <div class="tl-role">Litigation Attorney</div>
+          <div class="tl-company">High Court of Delhi · Verma & Associates</div>
+          <div class="tl-desc">6 years specialising in GDPR, IP law, company law, arbitration. Forensic analytical thinking applied daily.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="border-top:1px solid var(--border);padding:120px 48px;text-align:center;background:var(--bg);">
+  <div class="contact-eyebrow">Available for hire · Remote friendly · Delhi, India</div>
+  <h2 class="contact-headline">
+    Let's build<br><span>something.</span>
+  </h2>
+  <div class="contact-links">
+    <a href="mailto:dhruv.rajpoot@outlook.com" class="contact-link primary">dhruv.rajpoot@outlook.com</a>
+    <a href="https://www.linkedin.com/in/dhruvrajpoot" target="_blank" class="contact-link ghost">LinkedIn ↗</a>
+    <a href="https://github.com/Mr-DhruvRajpoot" target="_blank" class="contact-link ghost">GitHub ↗</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Dhruv Rajpoot</span>
+  <span>Product & Growth Analyst · Delhi, India</span>
+  <span>Open to remote · +91 8800331508</span>
+</footer>
+
+</body>
+</html>
