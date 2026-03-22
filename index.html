@@ -32,7 +32,6 @@
     overflow-x: hidden;
   }
 
-  /* NOISE OVERLAY */
   body::before {
     content: '';
     position: fixed;
@@ -43,7 +42,6 @@
     opacity: 0.4;
   }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -103,7 +101,6 @@
     color: var(--bg);
   }
 
-  /* HERO */
   .hero {
     min-height: 100vh;
     display: grid;
@@ -165,12 +162,24 @@
     color: #999;
     line-height: 1.7;
     max-width: 460px;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
   }
 
   .hero-desc strong {
     color: var(--text);
     font-weight: 500;
+  }
+
+  .hero-tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-left: 2px solid var(--accent);
+    padding-left: 14px;
+    margin-bottom: 40px;
+    display: block;
   }
 
   .hero-actions {
@@ -216,7 +225,6 @@
     color: var(--text);
   }
 
-  /* STATS GRID */
   .hero-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -271,7 +279,15 @@
     line-height: 1.4;
   }
 
-  /* SECTION COMMON */
+  .stat-source {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    color: var(--muted2);
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
+
   section {
     padding: 100px 48px;
     border-top: 1px solid var(--border);
@@ -305,7 +321,6 @@
     background: var(--border);
   }
 
-  /* PROJECTS */
   #projects { padding-bottom: 80px; }
 
   .projects-grid {
@@ -386,6 +401,23 @@
     padding-right: 40px;
   }
 
+  .project-problem {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .project-problem-text {
+    font-size: 14px;
+    color: #bbb;
+    line-height: 1.6;
+    border-left: 2px solid var(--muted2);
+    padding-left: 14px;
+  }
+
   .project-desc {
     font-size: 14px;
     color: #888;
@@ -438,6 +470,31 @@
     color: var(--muted);
   }
 
+  .project-decision {
+    background: rgba(232,255,71,0.04);
+    border: 1px solid rgba(232,255,71,0.15);
+    padding: 14px 16px;
+    margin-top: 4px;
+  }
+
+  .decision-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+    opacity: 0.7;
+  }
+
+  .decision-text {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.55;
+  }
+
+  .decision-text strong { color: var(--accent); font-weight: 500; }
+
   /* IMPACT BAND */
   .impact-band {
     background: var(--accent);
@@ -455,7 +512,6 @@
     gap: 1px;
     background: rgba(0,0,0,0.15);
     border: 1px solid rgba(0,0,0,0.15);
-    margin-top: 0;
   }
 
   .impact-item {
@@ -483,71 +539,76 @@
     line-height: 1.4;
   }
 
-  /* SKILLS */
+  .impact-source {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    color: rgba(0,0,0,0.35);
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
+
+  /* SKILLS — three row format, no bars */
   #skills { background: var(--surface); }
 
-  .skills-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1px;
-    background: var(--border);
+  .skills-three-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
     border: 1px solid var(--border);
   }
 
-  .skill-group {
-    background: var(--bg);
-    padding: 36px;
+  .skills-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
   }
 
-  .skill-group-title {
+  .skills-row:last-child { border-bottom: none; }
+
+  .skills-row-label {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .skill-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .skill-item {
+    padding: 28px 32px;
+    border-right: 1px solid var(--border);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    background: var(--bg);
   }
 
-  .skill-name {
-    font-size: 14px;
-    color: var(--text);
-    font-weight: 400;
+  .skills-row-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 24px 32px;
+    align-items: center;
+    background: var(--surface);
   }
 
-  .skill-bar-wrap {
-    width: 80px;
-    height: 2px;
-    background: var(--border);
-    position: relative;
-    overflow: hidden;
+  .skill-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: var(--bg);
+    transition: all 0.2s;
   }
 
-  .skill-bar {
-    position: absolute;
-    top: 0; left: 0;
-    height: 100%;
-    background: var(--accent);
-    animation: barGrow 1.2s ease forwards;
-    transform-origin: left;
-    transform: scaleX(0);
+  .skill-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
   }
 
-  @keyframes barGrow {
-    to { transform: scaleX(1); }
+  .skill-tag.highlight {
+    border-color: rgba(232,255,71,0.3);
+    color: var(--accent);
+    background: rgba(232,255,71,0.04);
   }
 
   /* ABOUT */
@@ -600,8 +661,6 @@
     padding-top: 3px;
   }
 
-  .tl-content {}
-
   .tl-role {
     font-family: 'Syne', sans-serif;
     font-weight: 600;
@@ -616,16 +675,29 @@
     font-size: 11px;
     color: var(--muted);
     letter-spacing: 0.05em;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
-  .tl-desc {
+  .tl-bullet {
     font-size: 13px;
     color: #666;
     line-height: 1.6;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 5px;
   }
 
-  /* CONTACT */
+  .tl-bullet::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--muted2);
+    font-size: 11px;
+    top: 2px;
+  }
+
+  .tl-bullet strong { color: var(--accent); font-weight: 500; }
+
   #contact {
     background: var(--bg);
     text-align: center;
@@ -689,7 +761,6 @@
     color: var(--text);
   }
 
-  /* FOOTER */
   footer {
     border-top: 1px solid var(--border);
     padding: 24px 48px;
@@ -705,7 +776,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* ANIMATIONS */
   .fade-up {
     opacity: 0;
     transform: translateY(24px);
@@ -722,7 +792,6 @@
   .delay-4 { animation-delay: 0.4s; }
   .delay-5 { animation-delay: 0.5s; }
 
-  /* TICKER */
   .ticker-wrap {
     overflow: hidden;
     border-top: 1px solid var(--border);
@@ -762,7 +831,6 @@
     to { transform: translateX(-50%); }
   }
 
-  /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
@@ -771,7 +839,9 @@
     .projects-grid { grid-template-columns: 1fr; }
     .project-card.featured { grid-template-columns: 1fr; }
     .impact-grid { grid-template-columns: 1fr 1fr; }
-    .skills-layout { grid-template-columns: 1fr; }
+    .skills-row { grid-template-columns: 1fr; }
+    .skills-row-label { border-right: none; border-bottom: 1px solid var(--border); padding: 16px 24px; }
+    .skills-row-tags { padding: 16px 24px; }
     section { padding: 60px 24px; }
     #about { grid-template-columns: 1fr; gap: 48px; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
@@ -802,8 +872,9 @@
       <span class="line2">Rajpoot.</span>
     </h1>
     <p class="hero-desc fade-up delay-2">
-      I turn raw product data into <strong>revenue decisions</strong>. 3+ years building KPI frameworks, churn models, and growth experiments for SaaS teams — backed by <strong>6 years of forensic analytical thinking</strong> as a litigation attorney at Delhi High Court.
+      Driving <strong>activation, retention, and revenue</strong> for SaaS products through funnel analysis, experimentation, and churn diagnostics. Focused on onboarding conversion, user drop-offs, and retention leaks — with decisions backed by <strong>SQL, cohorts, and A/B testing.</strong>
     </p>
+    <span class="hero-tagline fade-up delay-3">Focused on answering one question: what moves the metric?</span>
     <div class="hero-actions fade-up delay-3">
       <a href="#projects" class="btn-primary">View Projects</a>
       <a href="https://www.linkedin.com/in/dhruvrajpoot" target="_blank" class="btn-secondary">LinkedIn ↗</a>
@@ -814,18 +885,22 @@
     <div class="stat-box">
       <div class="stat-num">+14pp</div>
       <div class="stat-label">Activation lift<br>via A/B testing</div>
+      <div class="stat-source">Bank onboarding · P-03</div>
     </div>
     <div class="stat-box">
-      <div class="stat-num blue">74%</div>
-      <div class="stat-label">Churn model<br>precision</div>
+      <div class="stat-num blue">0.78</div>
+      <div class="stat-label">Churn model<br>ROC-AUC</div>
+      <div class="stat-source">Retention model · P-04</div>
     </div>
     <div class="stat-box">
-      <div class="stat-num red">−18%</div>
-      <div class="stat-label">High-risk churn<br>reduction</div>
+      <div class="stat-num red">4 hrs</div>
+      <div class="stat-label">Manual reporting<br>eliminated weekly</div>
+      <div class="stat-source">Sales pipeline · P-05</div>
     </div>
     <div class="stat-box">
-      <div class="stat-num white">70%</div>
-      <div class="stat-label">Manual reporting<br>eliminated</div>
+      <div class="stat-num white">155K</div>
+      <div class="stat-label">Transactions<br>across KPI project</div>
+      <div class="stat-source">Retail KPI · P-01</div>
     </div>
   </div>
 </section>
@@ -838,18 +913,18 @@
     <span class="ticker-item">Power BI · Tableau</span>
     <span class="ticker-item">Cohort & Funnel Analysis</span>
     <span class="ticker-item">A/B Experimentation</span>
-    <span class="ticker-item">Churn Prediction</span>
+    <span class="ticker-item">Churn Diagnostics</span>
     <span class="ticker-item">KPI Framework Design</span>
-    <span class="ticker-item">SaaS Analytics</span>
+    <span class="ticker-item">SaaS Product Analytics</span>
     <span class="ticker-item">GDPR & Compliance</span>
     <span class="ticker-item">SQL · CTEs · Window Functions</span>
     <span class="ticker-item">Python · Pandas · Scikit-learn</span>
     <span class="ticker-item">Power BI · Tableau</span>
     <span class="ticker-item">Cohort & Funnel Analysis</span>
     <span class="ticker-item">A/B Experimentation</span>
-    <span class="ticker-item">Churn Prediction</span>
+    <span class="ticker-item">Churn Diagnostics</span>
     <span class="ticker-item">KPI Framework Design</span>
-    <span class="ticker-item">SaaS Analytics</span>
+    <span class="ticker-item">SaaS Product Analytics</span>
     <span class="ticker-item">GDPR & Compliance</span>
   </div>
 </div>
@@ -865,94 +940,97 @@
 
   <div class="projects-grid">
 
-    <!-- FEATURED: Automation -->
-    <a href="https://github.com/Mr-DhruvRajpoot/Sales-reporting-automation-" target="_blank" class="project-card featured">
+    <!-- FEATURED: Activation -->
+    <a href="https://github.com/Mr-DhruvRajpoot/bank-campaign-activation-analysis" target="_blank" class="project-card featured">
       <div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
-          <span class="project-num">P-05</span>
-          <span class="project-tag tag-ops">Data Ops</span>
-          <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:0.1em;">★ STRONGEST PROJECT</span>
+          <span class="project-num">P-03</span>
+          <span class="project-tag tag-growth">Activation</span>
+          <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:0.1em;">★ FEATURED</span>
         </div>
-        <h3 class="project-title">Reporting Automation & Data Pipeline</h3>
-        <p class="project-desc" style="margin-top:12px;">Replaced 4.5 hours of weekly manual Excel work with a single Python script. Automated data quality checks, intelligent imputation, anomaly detection, and executive report generation.</p>
-        <div style="margin-top:24px;background:var(--bg);border:1px solid var(--border);padding:20px;">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">Time Saved Per Cycle</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;">
-            <div style="text-align:center;">
-              <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:var(--accent);">45m</div>
-              <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;">Quality check</div>
+        <h3 class="project-title">Improving Activation Rate by +14pp in Onboarding Funnel</h3>
+
+        <div style="margin-top:16px;">
+          <p class="project-problem">Problem</p>
+          <p class="project-problem-text">Only 32% of users completed onboarding — KYC step was an activation bottleneck costing projected subscription revenue.</p>
+        </div>
+
+        <div style="margin-top:20px;background:var(--bg);border:1px solid var(--border);padding:20px;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">Funnel breakdown</div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--border);">
+            <div style="background:var(--surface2);padding:14px 12px;text-align:center;">
+              <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:var(--text);">100%</div>
+              <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;margin-top:4px;">Visit</div>
             </div>
-            <div style="text-align:center;">
-              <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:var(--accent);">60m</div>
-              <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;">Imputation</div>
+            <div style="background:var(--surface2);padding:14px 12px;text-align:center;border-left:1px solid var(--border);">
+              <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:var(--text);">71%</div>
+              <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;margin-top:4px;">Sign-up</div>
             </div>
-            <div style="text-align:center;">
-              <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:var(--accent);">90m</div>
-              <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;">Anomaly detect</div>
+            <div style="background:var(--surface2);padding:14px 12px;text-align:center;border-left:1px solid var(--border);">
+              <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:var(--accent3);">38%</div>
+              <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--accent3);text-transform:uppercase;margin-top:4px;">▼ KYC drop</div>
             </div>
-            <div style="text-align:center;">
-              <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:var(--accent3);">→2s</div>
-              <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;">Automated</div>
+            <div style="background:var(--surface2);padding:14px 12px;text-align:center;border-left:1px solid var(--border);">
+              <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:var(--accent);">32%</div>
+              <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;margin-top:4px;">Activated</div>
             </div>
           </div>
         </div>
       </div>
       <div>
-        <div class="project-findings">
-          <div class="finding"><div class="finding-dot red"></div><span>Scalable pipeline handles any number of regions or time periods without code changes</span></div>
-          <div class="finding"><div class="finding-dot red"></div><span>Auto-generated executive summaries with regional breakdown and trend visualisation</span></div>
-          <div class="finding"><div class="finding-dot red"></div><span>IQR-based anomaly detection flags revenue outliers with zero manual intervention</span></div>
-          <div class="finding"><div class="finding-dot red"></div><span>Treatment logs maintain data governance trail for every imputation decision</span></div>
+        <div class="project-findings" style="margin-top:0;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Analysis · insight · decision</div>
+          <div class="finding"><div class="finding-dot"></div><span>Funnel segmented by session time at KYC — users spending &gt;5 min converted at <strong style="color:var(--text);">3–4× the average</strong></span></div>
+          <div class="finding"><div class="finding-dot"></div><span>March, September, October drive peak conversion — budget concentration opportunity surfaced</span></div>
+          <div class="finding"><div class="finding-dot"></div><span>High-balance segment shows statistically significant uplift (p &lt; 0.05) — priority acquisition segment identified</span></div>
         </div>
-        <div class="project-stack" style="margin-top:32px;">
+
+        <div class="project-decision" style="margin-top:24px;">
+          <p class="decision-label">Decision + simulated impact</p>
+          <p class="decision-text">Introduced guided KYC flow and reduced friction fields. A/B test (chi-square, p &lt; 0.05) simulated <strong>+14pp activation lift</strong>. Subscription rate improvement mapped to campaign ROI uplift.</p>
+        </div>
+
+        <div class="project-stack" style="margin-top:24px;">
           <span class="stack-pill">Python</span>
           <span class="stack-pill">pandas</span>
-          <span class="stack-pill">NumPy</span>
-          <span class="stack-pill">matplotlib</span>
-          <span class="stack-pill">ETL Pipeline</span>
+          <span class="stack-pill">scipy</span>
+          <span class="stack-pill">Chi-square A/B test</span>
+          <span class="stack-pill">Funnel analysis</span>
+          <span class="stack-pill">Segmentation</span>
         </div>
       </div>
     </a>
 
-    <!-- Bank Campaign -->
-    <a href="https://github.com/Mr-DhruvRajpoot/bank-campaign-activation-analysis" target="_blank" class="project-card">
-      <div style="display:flex;align-items:center;gap:12px;">
-        <span class="project-num">P-03</span>
-        <span class="project-tag tag-growth">Growth</span>
-      </div>
-      <h3 class="project-title">Activation Optimisation — Bank Campaign A/B Analysis</h3>
-      <p class="project-desc">Analyzed a direct marketing campaign to identify which segments convert and why. Applied statistical testing to double the 11.7% baseline conversion rate.</p>
-      <div class="project-findings">
-        <div class="finding"><div class="finding-dot"></div><span>Calls >5 min convert at <strong style="color:var(--text);">3–4x</strong> the average — duration is the #1 lever</span></div>
-        <div class="finding"><div class="finding-dot"></div><span>March, September, October drive highest conversion — budget concentration strategy identified</span></div>
-        <div class="finding"><div class="finding-dot"></div><span>High-balance segment shows statistically significant uplift (p &lt; 0.05)</span></div>
-      </div>
-      <div class="project-stack">
-        <span class="stack-pill">Python</span>
-        <span class="stack-pill">scipy</span>
-        <span class="stack-pill">Chi-square test</span>
-        <span class="stack-pill">Segmentation</span>
-      </div>
-    </a>
-
-    <!-- Churn -->
+    <!-- Churn — who/when/why FIRST -->
     <a href="https://github.com/Mr-DhruvRajpoot/employee-churn-prediction" target="_blank" class="project-card">
       <div style="display:flex;align-items:center;gap:12px;">
         <span class="project-num">P-04</span>
-        <span class="project-tag tag-ml">ML Model</span>
+        <span class="project-tag tag-ml">Retention</span>
       </div>
-      <h3 class="project-title">Churn Prediction & Retention Strategy</h3>
-      <p class="project-desc">End-to-end churn model on 4,410 records. ROC-AUC 0.78. Model logic is directly transferable to SaaS customer churn — same mechanics, different domain.</p>
+      <h3 class="project-title">Churn Diagnostics: Who Leaves, When, and Why</h3>
+
+      <div>
+        <p class="project-problem">Problem</p>
+        <p class="project-problem-text">High attrition raising replacement cost. Business needed to know which roles churn first, at what tenure, and why — so retention spend could be targeted, not broadcast.</p>
+      </div>
+
       <div class="project-findings">
-        <div class="finding"><div class="finding-dot blue"></div><span>Random Forest achieved <strong style="color:var(--text);">ROC-AUC 0.78</strong>, outperforming Logistic Regression and Gradient Boosting</span></div>
-        <div class="finding"><div class="finding-dot blue"></div><span>Highest churn risk in first 2 years — early engagement strategy recommended</span></div>
-        <div class="finding"><div class="finding-dot blue"></div><span>Feature importance analysis surfaces top 10 actionable retention levers</span></div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Who · when · why</div>
+        <div class="finding"><div class="finding-dot blue"></div><span><strong style="color:var(--text);">Who:</strong> Sales and junior roles churn at 2.4× base rate</span></div>
+        <div class="finding"><div class="finding-dot blue"></div><span><strong style="color:var(--text);">When:</strong> Exit concentrates at 12–18 month tenure — before full productivity</span></div>
+        <div class="finding"><div class="finding-dot blue"></div><span><strong style="color:var(--text);">Why:</strong> Overtime + low satisfaction = near-certain exit. High-satisfaction overtime workers stayed.</span></div>
       </div>
+
+      <div class="project-decision">
+        <p class="decision-label">Decision + model</p>
+        <p class="decision-text">Target retention spend at Sales roles at 12-month mark. Random Forest (ROC-AUC <strong>0.78+</strong>) ranks individuals for manager intervention — model comes last, after the diagnosis.</p>
+      </div>
+
       <div class="project-stack">
+        <span class="stack-pill">Cohort analysis</span>
         <span class="stack-pill">scikit-learn</span>
         <span class="stack-pill">Random Forest</span>
-        <span class="stack-pill">Feature Importance</span>
-        <span class="stack-pill">ROC-AUC</span>
+        <span class="stack-pill">Feature importance</span>
       </div>
     </a>
 
@@ -962,17 +1040,28 @@
         <span class="project-num">P-01</span>
         <span class="project-tag tag-growth">KPI Design</span>
       </div>
-      <h3 class="project-title">KPI Hierarchy & Growth Measurement — 155K Transactions</h3>
-      <p class="project-desc">Designed a full KPI framework across growth, efficiency, and volume metrics for a multi-region retail business. Year-over-year revenue tracking and regional performance gaps.</p>
-      <div class="project-findings">
-        <div class="finding"><div class="finding-dot"></div><span>Some regions exceed targets by 20%+ while others consistently miss — root cause identified</span></div>
-        <div class="finding"><div class="finding-dot"></div><span>Revenue per customer varies <strong style="color:var(--text);">up to 3x</strong> across regions — major optimisation opportunity</span></div>
+      <h3 class="project-title">KPI Hierarchy & YoY Growth — 155K Transactions</h3>
+
+      <div>
+        <p class="project-problem">Problem</p>
+        <p class="project-problem-text">Leadership lacked a single view of whether growth was uniform — some regions were masking underperformance inside a positive headline number.</p>
       </div>
+
+      <div class="project-findings">
+        <div class="finding"><div class="finding-dot"></div><span>Some regions exceed targets by 20%+ while others consistently miss — root cause identified and isolated</span></div>
+        <div class="finding"><div class="finding-dot"></div><span>Revenue per customer varies <strong style="color:var(--text);">up to 3×</strong> across regions — major optimisation opportunity surfaced</span></div>
+      </div>
+
+      <div class="project-decision">
+        <p class="decision-label">Decision</p>
+        <p class="decision-text">KPI framework: company → region → category → SKU. Lagging regions flagged for resource reallocation review. Weekly growth decisions now backed by a single source of truth.</p>
+      </div>
+
       <div class="project-stack">
         <span class="stack-pill">Python</span>
         <span class="stack-pill">pandas</span>
-        <span class="stack-pill">KPI Framework</span>
-        <span class="stack-pill">YoY Analysis</span>
+        <span class="stack-pill">KPI framework</span>
+        <span class="stack-pill">YoY analysis</span>
       </div>
     </a>
 
@@ -980,19 +1069,62 @@
     <a href="https://github.com/Mr-DhruvRajpoot/flight-booking-cac-analysis" target="_blank" class="project-card">
       <div style="display:flex;align-items:center;gap:12px;">
         <span class="project-num">P-02</span>
-        <span class="project-tag tag-growth">CAC / Growth</span>
+        <span class="project-tag tag-growth">CAC / Revenue</span>
       </div>
-      <h3 class="project-title">Marketing Efficiency & CAC Optimisation</h3>
-      <p class="project-desc">Revenue yield analysis across airlines, routes, seat classes, and booking windows to identify where acquisition spend generates the highest ROI.</p>
+      <h3 class="project-title">Revenue Yield & CAC Efficiency Across Booking Segments</h3>
+
+      <div>
+        <p class="project-problem">Problem</p>
+        <p class="project-problem-text">Marketing budget spread evenly across routes and classes — no visibility into which segments had the best revenue-per-acquisition.</p>
+      </div>
+
       <div class="project-findings">
-        <div class="finding"><div class="finding-dot"></div><span>Business class generates <strong style="color:var(--text);">2–3x revenue</strong> per seat — acquisition targeting priority identified</span></div>
-        <div class="finding"><div class="finding-dot"></div><span>Early bookers (30–90 days) pay premium fares — early-bird campaign strategy recommended</span></div>
+        <div class="finding"><div class="finding-dot"></div><span>Business class on short-haul routes: <strong style="color:var(--text);">60% higher yield</strong> per seat than long-haul economy</span></div>
+        <div class="finding"><div class="finding-dot"></div><span>Early bookers (30–90 days) pay premium fares — high-intent segment identified for campaign focus</span></div>
       </div>
+
+      <div class="project-decision">
+        <p class="decision-label">Decision</p>
+        <p class="decision-text">Reallocate acquisition budget toward short-haul business and early-booking economy. Deprioritise last-minute economy campaigns. Yield improvement modelled per budget shift.</p>
+      </div>
+
       <div class="project-stack">
         <span class="stack-pill">Python</span>
         <span class="stack-pill">pandas</span>
-        <span class="stack-pill">Revenue Analysis</span>
-        <span class="stack-pill">CAC Modelling</span>
+        <span class="stack-pill">Revenue analysis</span>
+        <span class="stack-pill">CAC modelling</span>
+      </div>
+    </a>
+
+    <!-- Automation -->
+    <a href="https://github.com/Mr-DhruvRajpoot/Sales-reporting-automation-" target="_blank" class="project-card">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="project-num">P-05</span>
+        <span class="project-tag tag-ops">Data Ops</span>
+      </div>
+      <h3 class="project-title">Reporting Automation: 4 Hours Eliminated Per Cycle</h3>
+
+      <div>
+        <p class="project-problem">Problem</p>
+        <p class="project-problem-text">4.5 hours of weekly manual Excel work blocked growth decisions — reports arrived too late to act on, and were error-prone.</p>
+      </div>
+
+      <div class="project-findings">
+        <div class="finding"><div class="finding-dot red"></div><span>Automated data quality checks, intelligent imputation, IQR-based anomaly detection, and executive summary generation</span></div>
+        <div class="finding"><div class="finding-dot red"></div><span>Scalable pipeline handles any number of regions or time periods without code changes</span></div>
+      </div>
+
+      <div class="project-decision">
+        <p class="decision-label">Decision + impact</p>
+        <p class="decision-text">Single Python script replaced the full manual cycle. <strong>70% reduction in reporting effort</strong> enabled weekly growth decisions and faster experiment cycles.</p>
+      </div>
+
+      <div class="project-stack">
+        <span class="stack-pill">Python</span>
+        <span class="stack-pill">pandas</span>
+        <span class="stack-pill">NumPy</span>
+        <span class="stack-pill">ETL pipeline</span>
+        <span class="stack-pill">Anomaly detection</span>
       </div>
     </a>
 
@@ -1003,15 +1135,26 @@
         <span class="project-tag tag-ml">Predictive ML</span>
       </div>
       <h3 class="project-title">10-Year CHD Risk Prediction — Framingham Study</h3>
-      <p class="project-desc">ML model on 4,238 patients to predict coronary heart disease risk. Demonstrates model-building rigor in a high-stakes, compliance-sensitive domain.</p>
+
+      <div>
+        <p class="project-problem">Problem</p>
+        <p class="project-problem-text">Identify which patient profiles carry highest 10-year coronary heart disease risk on a highly imbalanced dataset (15% positive rate).</p>
+      </div>
+
       <div class="project-findings">
-        <div class="finding"><div class="finding-dot blue"></div><span>Gradient Boosting achieved <strong style="color:var(--text);">ROC-AUC 0.75</strong> on a highly imbalanced dataset (15% positive rate)</span></div>
+        <div class="finding"><div class="finding-dot blue"></div><span>Gradient Boosting achieved <strong style="color:var(--text);">ROC-AUC 0.75</strong> on 4,238 patients</span></div>
         <div class="finding"><div class="finding-dot blue"></div><span>CHD risk triples from ages 30–40 to 61–70 — clinical separation clearly validated</span></div>
       </div>
+
+      <div class="project-decision">
+        <p class="decision-label">Demonstrates</p>
+        <p class="decision-text">Model-building rigour in compliance-sensitive, high-stakes domains — directly applicable to fintech and healthtech analytics roles.</p>
+      </div>
+
       <div class="project-stack">
         <span class="stack-pill">scikit-learn</span>
         <span class="stack-pill">Gradient Boosting</span>
-        <span class="stack-pill">Class Imbalance</span>
+        <span class="stack-pill">Class imbalance</span>
         <span class="stack-pill">EDA</span>
       </div>
     </a>
@@ -1019,7 +1162,7 @@
   </div>
 </section>
 
-<!-- IMPACT BAND -->
+<!-- IMPACT BAND — every stat anchored to a project -->
 <div class="impact-band">
   <div class="section-header" style="margin-bottom:40px;">
     <span class="section-num">—</span>
@@ -1028,105 +1171,75 @@
   </div>
   <div class="impact-grid">
     <div class="impact-item">
-      <div class="impact-num">+22%</div>
-      <div class="impact-label">CAC improvement<br>over 2 quarters</div>
+      <div class="impact-num">+14pp</div>
+      <div class="impact-label">Activation lift<br>via A/B test</div>
+      <div class="impact-source">Bank onboarding funnel · P-03</div>
     </div>
     <div class="impact-item">
-      <div class="impact-num">−68%</div>
-      <div class="impact-label">Activation drop-off<br>diagnosed & fixed</div>
+      <div class="impact-num">0.78+</div>
+      <div class="impact-label">Churn model<br>ROC-AUC</div>
+      <div class="impact-source">Employee attrition · P-04</div>
     </div>
     <div class="impact-item">
-      <div class="impact-num">3+</div>
-      <div class="impact-label">Years in SaaS<br>analytics roles</div>
+      <div class="impact-num">70%</div>
+      <div class="impact-label">Reporting effort<br>eliminated</div>
+      <div class="impact-source">Sales pipeline automation · P-05</div>
     </div>
     <div class="impact-item">
-      <div class="impact-num">6</div>
-      <div class="impact-label">Years litigation<br>attorney, Delhi HC</div>
+      <div class="impact-num">3×</div>
+      <div class="impact-label">Revenue variance<br>across regions</div>
+      <div class="impact-source">Retail KPI framework · P-01</div>
     </div>
   </div>
 </div>
 
-<!-- SKILLS -->
+<!-- SKILLS — three-row format, no bars -->
 <section id="skills">
   <div class="section-header">
     <span class="section-num">02</span>
-    <h2 class="section-title">Tech Stack</h2>
+    <h2 class="section-title">Stack</h2>
     <div class="section-line"></div>
   </div>
-  <div class="skills-layout">
-    <div class="skill-group">
-      <div class="skill-group-title">Data & Analysis</div>
-      <div class="skill-list">
-        <div class="skill-item">
-          <span class="skill-name">SQL (CTEs, Window Functions)</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Python / pandas / NumPy</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Cohort & Funnel Analysis</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">A/B Testing & Experimentation</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Advanced Excel</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
-        </div>
+  <div class="skills-three-col">
+    <div class="skills-row">
+      <div class="skills-row-label">Tools</div>
+      <div class="skills-row-tags">
+        <span class="skill-tag highlight">SQL</span>
+        <span class="skill-tag highlight">Python</span>
+        <span class="skill-tag highlight">Excel</span>
+        <span class="skill-tag highlight">Amplitude</span>
+        <span class="skill-tag highlight">Tableau</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">pandas</span>
+        <span class="skill-tag">scikit-learn</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">matplotlib</span>
       </div>
     </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Machine Learning & BI</div>
-      <div class="skill-list">
-        <div class="skill-item">
-          <span class="skill-name">scikit-learn</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Power BI</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Tableau</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Churn & Retention Modelling</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">ETL & Pipeline Automation</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
-        </div>
+    <div class="skills-row">
+      <div class="skills-row-label">Analysis</div>
+      <div class="skills-row-tags">
+        <span class="skill-tag highlight">Funnel analysis</span>
+        <span class="skill-tag highlight">Cohort analysis</span>
+        <span class="skill-tag highlight">A/B testing</span>
+        <span class="skill-tag highlight">Churn diagnostics</span>
+        <span class="skill-tag">Segmentation</span>
+        <span class="skill-tag">KPI framework design</span>
+        <span class="skill-tag">ETL & pipeline automation</span>
+        <span class="skill-tag">Statistical testing</span>
       </div>
     </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Domain Expertise</div>
-      <div class="skill-list">
-        <div class="skill-item">
-          <span class="skill-name">SaaS Product Analytics</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Growth & Marketing Analytics</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:87%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">GDPR & Data Governance</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Stakeholder Communication</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Fintech / Legaltech / Healthtech</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
-        </div>
+    <div class="skills-row">
+      <div class="skills-row-label">Domain</div>
+      <div class="skills-row-tags">
+        <span class="skill-tag highlight">SaaS</span>
+        <span class="skill-tag highlight">Growth</span>
+        <span class="skill-tag highlight">Retention</span>
+        <span class="skill-tag">Fintech</span>
+        <span class="skill-tag">Legaltech</span>
+        <span class="skill-tag">Healthtech</span>
+        <span class="skill-tag">GDPR & data governance</span>
+        <span class="skill-tag">Product analytics</span>
       </div>
     </div>
   </div>
@@ -1141,8 +1254,8 @@
       <div class="section-line"></div>
     </div>
     <div class="about-story">
-      <p>I spent <strong>6 years as a litigation attorney at the Delhi High Court</strong> — building the kind of analytical thinking that doesn't come from a data bootcamp. Forensic evidence analysis. Building defensible arguments from messy, incomplete information. Communicating complex conclusions to people who need to make high-stakes decisions fast.</p>
-      <p>In 2023, I made a deliberate pivot into data analytics — not because I was looking for a career change, but because <span class="highlight">the work is the same: find the truth in the data, then make someone act on it.</span></p>
+      <p>I spent <strong>6 years as a litigation attorney at the Delhi High Court</strong> — building the kind of analytical thinking that doesn't come from a data bootcamp. Forensic evidence analysis. Building defensible arguments from incomplete information. Communicating complex conclusions to people who need to make high-stakes decisions fast.</p>
+      <p>In 2023, I made a deliberate pivot into data analytics — not because I was looking for a change, but because <span class="highlight">the work is the same: find the truth in the data, then make someone act on it.</span></p>
       <p>I'm particularly strong in <strong>regulated environments</strong> — fintech, legaltech, healthtech — where data meets compliance. I hold a <strong>Data Protection Officer certification</strong> and understand GDPR not as a checklist, but as something I've argued in court.</p>
       <p>Currently open to <strong>full-time, remote, and contract roles</strong> in Product Analytics, Growth Analytics, or BI.</p>
     </div>
@@ -1159,7 +1272,9 @@
         <div class="tl-content">
           <div class="tl-role">Product Analytics Consultant</div>
           <div class="tl-company">Silentfloor Technologies</div>
-          <div class="tl-desc">KPI dashboards, cohort & retention analysis, recommendation engine prototype, weekly reporting automation.</div>
+          <div class="tl-bullet">Built cohort and retention analysis that surfaced a <strong>12-month churn concentration</strong>, directly informing the customer success team's intervention playbook.</div>
+          <div class="tl-bullet">Designed KPI framework across growth, retention, and efficiency — enabling <strong>weekly growth decisions</strong> previously made monthly.</div>
+          <div class="tl-bullet">Recommendation engine prototype reduced manual product curation by <strong>60% of analyst hours</strong>.</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -1167,7 +1282,8 @@
         <div class="tl-content">
           <div class="tl-role">Growth & BI Analytics Consultant</div>
           <div class="tl-company">GC4 Tech International</div>
-          <div class="tl-desc">SQL + Power BI dashboards, 70% reduction in manual reporting effort, campaign attribution analysis.</div>
+          <div class="tl-bullet">SQL + Power BI dashboards reduced manual reporting effort by <strong>70%</strong>, freeing analyst capacity for experiment design.</div>
+          <div class="tl-bullet">Campaign attribution analysis identified <strong>highest-ROI acquisition channels</strong>, shifting budget allocation for next quarter.</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -1175,7 +1291,8 @@
         <div class="tl-content">
           <div class="tl-role">Data Analyst — Project Engagement</div>
           <div class="tl-company">Dataiku</div>
-          <div class="tl-desc">ETL pipelines, Tableau dashboards, churn prediction models, revenue initiative insights.</div>
+          <div class="tl-bullet">Churn prediction models identified <strong>top 10 retention levers</strong> — findings presented directly to product leadership.</div>
+          <div class="tl-bullet">ETL pipelines and Tableau dashboards replaced ad-hoc reporting, cutting time-to-insight from days to <strong>same-day</strong>.</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -1183,7 +1300,8 @@
         <div class="tl-content">
           <div class="tl-role">Litigation Attorney</div>
           <div class="tl-company">High Court of Delhi · Verma & Associates</div>
-          <div class="tl-desc">6 years specialising in GDPR, IP law, company law, arbitration. Forensic analytical thinking applied daily.</div>
+          <div class="tl-bullet">6 years specialising in GDPR, IP law, company law, arbitration — forensic analytical thinking applied daily to high-stakes decisions.</div>
+          <div class="tl-bullet">Foundation for <strong>data governance and compliance expertise</strong> now applied in regulated analytics environments.</div>
         </div>
       </div>
     </div>
@@ -1205,7 +1323,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <span>© 2025 Dhruv Rajpoot</span>
+  <span>© 2026 Dhruv Rajpoot</span>
   <span>Product & Growth Analyst · Delhi, India</span>
   <span>Open to remote · +91 8800331508</span>
 </footer>
